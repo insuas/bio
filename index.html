@@ -295,6 +295,70 @@
           </ul>
         </div>
       </section>
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="juego">
+        <div class="my-auto">
+          <h2 class="mb-5">juego</h2>
+         <canvas id="canvas" width="1000" height="400" ></canvas>
+    <script>
+    var teclas = 
+    {
+        up:38,
+        down:40,
+        left:37,
+        right: 39,
+        fast:70
+    };
+
+    document.addEventListener('keydown',dibujarTeclado)
+    var canvas = document.getElementById('canvas')
+    var ctx =canvas.getContext('2d')
+    var x = 150
+    var y = 150
+    
+    dibujarLinea ('#123456', 149, 149, 151, 151, ctx)
+
+    function dibujarLinea (color, posInicialx, posInicialy, posfinalx, posfinaly, lienzo)
+    {
+        lienzo.beginPath()
+        lienzo.strokeStyle = color
+        lienzo.lineWidth = 3
+        
+        lienzo.moveTo(posInicialx,posInicialy)
+        lienzo.lineTo(posfinalx,posfinaly)
+      
+        lienzo.stroke()
+        lienzo.closePath()
+    }
+    function dibujarTeclado(evento)
+    {   
+        var colorcito = "#123456"
+        var movimiento = 10
+        
+    switch (evento.keyCode)
+      {
+        case teclas.up:
+            dibujarLinea (colorcito, x, y, x, y-movimiento, ctx)
+            y = y-movimiento
+            break;
+         case teclas.down:
+            dibujarLinea (colorcito, x, y, x, y+movimiento, ctx)
+            y = y+movimiento
+            break;
+         case teclas.left:
+            dibujarLinea (colorcito, x, y, x-movimiento, y, ctx)
+            x = x-movimiento
+            break;
+             case teclas.right:
+            dibujarLinea (colorcito, x, y, x+movimiento,y, ctx)
+            x = x + movimiento
+            break;   
+        }console.log(evento)
+      
+    }
+    </script>
+          <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technolgy advancements in the front-end web development world.</p>
+        </div>
+      </section>
 
     </div>
 
